@@ -1,0 +1,97 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+
+- story: basic path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: produit-inp
+  - action: form_log
+  - active_loop: form_log
+  - slot_was_set:
+      - requested_slot: cin
+  - slot_was_set:
+      - cin: AE255333
+  - slot_was_set:
+      - requested_slot: pension
+  - slot_was_set:
+      - pension: 1660
+  - slot_was_set:
+      - requested_slot: datenaissance
+  - slot_was_set:
+      - datenaissance: 10/03/1999
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: utter_end_response
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: produit-inp
+    entities:
+    - produit: '5'
+  - slot_was_set:
+    - produit: '5'
+  - action: form_log
+  - active_loop: form_log
+  - slot_was_set:
+    - produit: '5'
+  - slot_was_set:
+    - requested_slot: cin
+  - intent: cin-inp
+    entities:
+    - cin: AE259393
+  - slot_was_set:
+    - cin: AE259393
+  - action: form_log
+  - slot_was_set:
+    - requested_slot: pension
+  - intent: pension-inp
+    entities:
+    - pension: '1500'
+  - slot_was_set:
+    - pension: '1500'
+  - action: form_log
+  - slot_was_set:
+    - requested_slot: datenaissance
+  - intent: produit-inp
+    entities:
+    - datenaissance: 10/03/1999
+  - slot_was_set:
+    - datenaissance: 10/03/1999
+  - action: form_log
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_end_response

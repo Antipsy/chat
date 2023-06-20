@@ -1,0 +1,93 @@
+version: '3.1'
+intents:
+- affirm
+- bot_challenge
+- cin-inp
+- datenaissance-inp
+- deny
+- goodbye
+- greet
+- mood_great
+- mood_unhappy
+- pension-inp
+- produit-inp
+responses:
+  utter_greet:
+  - text: |-
+      Bonjour! Veuillez choisir un Service ! 1-Rcar.
+      2-Recore.
+      3-Rente At.
+      4-Daam al aramil.
+      5-Tayssir.
+  utter_cin:
+  - text: 'Entrez votre Numero de Cin!:'
+  utter_pension:
+  - text: 'Entrez votre Numero de Pension!:'
+  utter_datenaissance:
+  - text: 'Entrez votre Date de naissance!:'
+  utter_end_response:
+  - text: 'Vous etes authentifié:'
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_askForLastPayment:
+  - text: 'Last payment was '
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+entities:
+- produit
+- datenaissance
+- cin
+- pension
+- LastPayment
+- DateOfLastPayment
+slots:
+  produit:
+    type: categorical
+    values:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    mappings:
+    - type: from_entity
+      entity: produit
+  cin:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: cin
+  datenaissance:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: datenaissance
+  pension:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: pension
+actions:
+- utter_end_response
+- utter_greet
+- getuser
+- utter_cin
+- utter_pension
+- utter_datenaissance
+- validate_form
+forms:
+  form_log:
+    required_slots:
+    - cin
+    - pension
+    - datenaissance

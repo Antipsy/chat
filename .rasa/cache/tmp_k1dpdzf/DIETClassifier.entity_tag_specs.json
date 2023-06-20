@@ -1,0 +1,44 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-cin",
+      "2": "I-cin",
+      "3": "L-cin",
+      "4": "U-cin",
+      "5": "B-datenaissance",
+      "6": "I-datenaissance",
+      "7": "L-datenaissance",
+      "8": "U-datenaissance",
+      "9": "B-pension",
+      "10": "I-pension",
+      "11": "L-pension",
+      "12": "U-pension",
+      "13": "B-produit",
+      "14": "I-produit",
+      "15": "L-produit",
+      "16": "U-produit",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-cin": 1,
+      "I-cin": 2,
+      "L-cin": 3,
+      "U-cin": 4,
+      "B-datenaissance": 5,
+      "I-datenaissance": 6,
+      "L-datenaissance": 7,
+      "U-datenaissance": 8,
+      "B-pension": 9,
+      "I-pension": 10,
+      "L-pension": 11,
+      "U-pension": 12,
+      "B-produit": 13,
+      "I-produit": 14,
+      "L-produit": 15,
+      "U-produit": 16,
+      "O": 0
+    },
+    "num_tags": 17
+  }
+]
